@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { company, navItems } from "@/data/company";
 import { Logo } from "./Logo";
 
@@ -14,10 +14,6 @@ export const NAV_HEIGHT = 72;
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white">
@@ -32,9 +28,7 @@ export function Header() {
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {navItems.map((item) => {
             const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
@@ -79,6 +73,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setOpen(false)}
                 className="px-3 py-3 text-base font-medium text-slate-700 hover:bg-primary-50 hover:text-primary-700"
               >
                 {item.label}
@@ -86,6 +81,7 @@ export function Header() {
             ))}
             <Link
               href="/kontakt"
+              onClick={() => setOpen(false)}
               className="mt-1 bg-primary-600 px-3 py-3 text-center text-base font-semibold text-white"
             >
               Kontakt
