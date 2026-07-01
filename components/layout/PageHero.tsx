@@ -14,30 +14,35 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <div className="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
+    <section className="bg-gradient-to-br from-primary-800 to-primary-950 text-white">
       <Container className="py-14 sm:py-20">
-        <nav className="mb-4 text-sm text-slate-500">
-          <Link href="/" className="hover:text-brand-700">
+        <nav className="text-sm text-primary-200">
+          <Link href="/" className="transition-colors hover:text-white">
             Domov
           </Link>
-          <span className="px-2">/</span>
-          <span className="text-slate-700">{title}</span>
+          <span className="px-2 text-primary-300">/</span>
+          <span className="text-white">{title}</span>
         </nav>
+
         {eyebrow && (
-          <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
+          <p className="mt-8 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary-200">
+            <span className="h-2 w-2 bg-accent-500" />
             {eyebrow}
           </p>
         )}
-        <h1 className="mt-2 max-w-3xl text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
+
+        <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
           {title}
         </h1>
+
         {description && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-primary-100">
             {description}
           </p>
         )}
+
         {children && <div className="mt-8">{children}</div>}
       </Container>
-    </div>
+    </section>
   );
 }

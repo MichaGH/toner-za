@@ -1,16 +1,22 @@
 import { HeroSection } from "@/components/homepage/HeroSection";
-import { AboutSection } from "@/components/homepage/AboutSection";
-import { ServicesSection } from "@/components/homepage/ServicesSection";
-import { RentalSection } from "@/components/homepage/RentalSection";
+import { PartnerStripSection } from "@/components/homepage/PartnerStripSection";
+import { ServiceCardsSection } from "@/components/homepage/ServiceCardsSection";
+import { RentalAdvantagesSection } from "@/components/homepage/RentalAdvantagesSection";
+import { PrinterOffersSection } from "@/components/homepage/PrinterOffersSection";
+import { TonerSection } from "@/components/homepage/TonerSection";
+import { WhyUsSection } from "@/components/homepage/WhyUsSection";
 import { CtaSection } from "@/components/homepage/CtaSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <RentalSection />
+      <PartnerStripSection />
+      <ServiceCardsSection />
+      <RentalAdvantagesSection />
+      <PrinterOffersSection />
+      <TonerSection />
+      <WhyUsSection />
       <CtaSection />
     </>
   );

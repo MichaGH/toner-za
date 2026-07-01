@@ -1,20 +1,17 @@
 import Link from "next/link";
 import { company, navItems } from "@/data/company";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-slate-200 bg-slate-50">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
-          <div className="flex items-baseline gap-1 text-xl font-extrabold tracking-tight">
-            <span className="text-brand-700">TONER</span>
-            <span className="text-slate-400">-</span>
-            <span className="text-ink">ZA</span>
-          </div>
+          <Logo />
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-600">
             {company.description}
           </p>
-          <p className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-50 px-3 py-2 text-sm font-semibold text-brand-800">
+          <p className="mt-4 inline-flex items-center gap-2 rounded-none bg-primary-50 px-3 py-2 text-sm font-semibold text-primary-800">
             {company.partner.role} {company.partner.brand}
           </p>
         </div>
@@ -28,7 +25,7 @@ export function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-slate-600 transition-colors hover:text-brand-700"
+                  className="text-sm text-slate-600 transition-colors hover:text-primary-700"
                 >
                   {item.label}
                 </Link>
@@ -43,12 +40,12 @@ export function Footer() {
           </h3>
           <ul className="mt-4 space-y-2 text-sm text-slate-600">
             <li>
-              <a href={`tel:${company.contact.phone.replace(/\s/g, "")}`} className="hover:text-brand-700">
+              <a href={`tel:${company.contact.phone.replace(/\s/g, "")}`} className="hover:text-primary-700">
                 {company.contact.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${company.contact.email}`} className="hover:text-brand-700">
+              <a href={`mailto:${company.contact.email}`} className="hover:text-primary-700">
                 {company.contact.email}
               </a>
             </li>

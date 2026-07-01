@@ -1,23 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  /* Značková modrá (KONICA MINOLTA / TONER-ZA) */
-  --color-brand-50: #eef6fd;
-  --color-brand-100: #d9eafb;
-  --color-brand-200: #b9d8f7;
-  --color-brand-300: #8bbdf0;
-  --color-brand-400: #5598e4;
-  --color-brand-500: #2f77d4;
-  --color-brand-600: #1d5cb8;
-  --color-brand-700: #1a4a95;
-  --color-brand-800: #1a3f78;
-  --color-brand-900: #1a3863;
-  --color-brand-950: #122443;
+  /* ───────────────────────────────────────────────
+     PRIMÁRNA FARBA – firemná modrá (KONICA MINOLTA / TONER-ZA).
+     Sýta, kontrastná modrá. Odtieň zmeníte úpravou hodnôt nižšie.
+     ─────────────────────────────────────────────── */
+  --color-primary-50: #eff4ff;
+  --color-primary-100: #dbe6fe;
+  --color-primary-200: #bfd3fe;
+  --color-primary-300: #93b4fd;
+  --color-primary-400: #6090fb;
+  --color-primary-500: #3b6bf6;
+  --color-primary-600: #2356eb;
+  --color-primary-700: #1b44d8;
+  --color-primary-800: #1d3fae;
+  --color-primary-900: #1d3a8a;
+  --color-primary-950: #162253;
 
-  --color-ink: #0f172a;
-  --color-muted: #475569;
+  /* ───────────────────────────────────────────────
+     AKCENTOVÁ FARBA – červená z loga (3 bodky).
+     Doplnok k modrej – malé, výrazné prvky.
+     ─────────────────────────────────────────────── */
+  --color-accent-50: #fef2f3;
+  --color-accent-100: #fde0e2;
+  --color-accent-500: #e11d2e;
+  --color-accent-600: #c81626;
+  --color-accent-700: #a81320;
 
-  --font-sans: var(--font-geist-sans);
+  --color-ink: #0a0f1d;
+  --color-muted: #525e72;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-jakarta);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -28,4 +42,13 @@ html {
 body {
   color: var(--color-ink);
   background: #ffffff;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-jakarta), var(--font-inter), system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }

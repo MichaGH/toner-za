@@ -4,60 +4,52 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { company, navItems } from "@/data/company";
+import { Logo } from "./Logo";
+
+// Výška navigácie v px (jediný zdroj pravdy – používa ju aj TonerSection).
+// Ak by scrollovaná verzia mala inú výšku, pridaj NAV_HEIGHT_SCROLLED
+// a prepínaj podľa stavu.
+export const NAV_HEIGHT = 72;
 
 export function Header() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  useEffect(() => {
-    if (!isHome) return;
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
-
-  // Priehľadný režim len na úvodnej stránke v hornej polohe a so zatvoreným menu.
-  const overlay = isHome && !scrolled && !open;
-
   return (
-    <header
-      className={`top-0 z-50 w-full transition-colors duration-300 ${
-        isHome ? "fixed" : "sticky"
-      } ${overlay ? "bg-transparent" : "border-b border-slate-200 bg-white/90 backdrop-blur"}`}
-    >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-baseline gap-1 text-xl font-extrabold tracking-tight">
-          <span className={overlay ? "text-white" : "text-brand-700"}>TONER</span>
-          <span className={overlay ? "text-white/50" : "text-slate-400"}>-</span>
-          <span className={overlay ? "text-white" : "text-ink"}>ZA</span>
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white">
+      <div
+        className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        style={{ height: NAV_HEIGHT }}
+      >
+        <Link href="/" aria-label="TONER-ZA – domov">
+          <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm font-medium transition-colors ${
-                overlay ? "text-white/90 hover:text-white" : "text-slate-600 hover:text-brand-700"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
+          {navItems.map((item) => {
+            const active =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm font-medium transition-colors ${
+                  active ? "text-primary-700" : "text-slate-600 hover:text-primary-700"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             href="/kontakt"
-            className={`rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
-              overlay
-                ? "bg-white text-brand-700 hover:bg-brand-50"
-                : "bg-brand-600 text-white hover:bg-brand-700"
-            }`}
+            className="bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-700"
           >
             Kontakt
           </Link>
@@ -66,9 +58,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className={`inline-flex items-center justify-center rounded-lg p-2 lg:hidden ${
-            overlay ? "text-white" : "text-slate-700"
-          }`}
+          className="inline-flex items-center justify-center p-2 text-slate-700 lg:hidden"
           aria-label="Otvoriť menu"
           aria-expanded={open}
         >
@@ -89,14 +79,14 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700"
+                className="px-3 py-3 text-base font-medium text-slate-700 hover:bg-primary-50 hover:text-primary-700"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/kontakt"
-              className="mt-1 rounded-lg bg-brand-600 px-3 py-3 text-center text-base font-semibold text-white"
+              className="mt-1 bg-primary-600 px-3 py-3 text-center text-base font-semibold text-white"
             >
               Kontakt
             </Link>

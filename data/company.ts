@@ -23,11 +23,9 @@ export const company = {
 // Hlavná navigácia – každá položka má aj samostatnú podstránku.
 export const navItems = [
   { label: "Prenájom", href: "/prenajom" },
-  { label: "Predaj tonerov", href: "/tonery" },
-  { label: "Renovácie tonerov", href: "/renovacie-tonerov" },
-  { label: "Katalóg", href: "/katalog" },
+  { label: "Predaj tlačiarní", href: "/predaj-tlaciarni" },
+  { label: "Tonery", href: "/tonery" },
   { label: "Servis", href: "/servis" },
-  { label: "Cenník", href: "/cennik" },
 ] as const;
 
 // Značky, ktoré firma servisuje / pre ktoré renovuje tonery.

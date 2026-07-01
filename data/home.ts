@@ -1,40 +1,76 @@
 // Obsah úvodnej stránky.
 
-export type HeroSlide = {
-  image: string;
-  eyebrow: string;
-  title: string;
-  text: string;
-  cta: { label: string; href: string };
+export const hero = {
+  eyebrow: "Zmluvný distribútor a servisný partner KONICA MINOLTA",
+  title: "Prenájom a servis tlačiarenskej techniky",
+  subtitle:
+    "Predaj a prenájom multifunkčných zariadení, tonerov a kompletný servis pre firmy. Spoľahlivý partner pre vašu kanceláriu.",
 };
 
-export const heroSlides: HeroSlide[] = [
+export type ServiceCard = {
+  label: string;
+  text: string;
+  image: string;
+  href: string;
+};
+
+// Tri hlavné služby.
+export const serviceCards: ServiceCard[] = [
   {
-    image: "/hero/slide-1.jpg",
-    eyebrow: "Zmluvný distribútor a servisný partner KONICA MINOLTA",
-    title: "Kancelárska technika bez kompromisov",
-    text: "Predaj, prenájom a servis tlačiarní a kopírovacích strojov pre firmy každej veľkosti.",
-    cta: { label: "Prenájom techniky", href: "/prenajom" },
+    label: "Prenájom tlačiarní",
+    text: "Multifunkčné zariadenia na prenájom so servisno-materiálovou zmluvou a prehľadným mesačným paušálom.",
+    image: "/images/servicesSection-rent.webp",
+    href: "/prenajom",
   },
   {
-    image: "/hero/slide-2.jpg",
-    eyebrow: "Tonery a renovácie",
-    title: "Tlačte v plnej farbe za rozumné náklady",
+    label: "Predaj a servis tlačiarní",
+    text: "Dodávka, inštalácia, údržba a opravy kancelárskej techniky certifikovanými technikmi.",
+    image: "/images/servicesSection-repair.webp",
+    href: "/servis",
+  },
+  {
+    label: "Predaj a renovácia tonerov",
     text: "Originálne, kompatibilné aj renovované tonery pre všetky bežné značky.",
-    cta: { label: "Predaj tonerov", href: "/tonery" },
+    image: "/images/servicesSection-toner.webp",
+    href: "/tonery",
+  },
+];
+
+// Prečo my / o nás.
+export const aboutLead =
+  "Sme zmluvný distribútor a servisný partner KONICA MINOLTA. Dodávame, prenajímame a servisujeme kancelársku techniku a postaráme sa o ňu počas celej jej životnosti.";
+
+export const whyUs = [
+  {
+    title: "Partner KONICA MINOLTA",
+    text: "Zmluvný distribútor a servisný partner – záruka kvality a originálneho materiálu.",
   },
   {
-    image: "/hero/slide-3.jpg",
-    eyebrow: "Servisno-materiálová zmluva",
-    title: "O techniku sa postaráme za vás",
-    text: "Inštalácia, údržba, dodávka materiálu aj garantovaný servisný zásah do 8 hodín.",
-    cta: { label: "Servisné služby", href: "/servis" },
+    title: "Certifikovaní technici",
+    text: "Inštaláciu, údržbu aj opravy realizujú vyškolení technici priamo u vás.",
   },
   {
-    image: "/hero/slide-4.jpg",
-    eyebrow: "Multifunkčné zariadenia",
-    title: "Vyberte si zo špičkových zariadení",
-    text: "Č/B aj farebné multifunkčné zariadenia s príslušenstvom na mieru.",
-    cta: { label: "Prehliadať katalóg", href: "/katalog" },
+    title: "Servisný zásah do 8 hodín",
+    text: "Garantovaná reakcia na nahlásenie poruchy v rámci servisno-materiálovej zmluvy.",
+  },
+  {
+    title: "Všetko na jednom mieste",
+    text: "Predaj, prenájom, tonery aj servis – jeden dodávateľ pre celú vašu kanceláriu.",
+  },
+];
+
+// Prečo prenájom multifunkčného zariadenia.
+export const whyRental = [
+  {
+    title: "Žiadne investičné náklady",
+    text: "Neviažete kapitál v technike. Platíte prehľadný mesačný paušál, ktorý je nákladovou položkou.",
+  },
+  {
+    title: "Kompletný servis v cene",
+    text: "Súčasťou prenájmu je servisno-materiálová zmluva – materiál, servis, práca aj cestovné technikov.",
+  },
+  {
+    title: "Flexibilita a istota",
+    text: "Variabilná zmluva s možnosťou rozšírenia, predĺžená záruka a fixné náklady bez prekvapení.",
   },
 ];
