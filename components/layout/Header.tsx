@@ -39,8 +39,8 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
-                  active ? "text-primary-700" : "text-slate-600 hover:text-primary-700"
+                className={`text-base font-semibold transition-colors ${
+                  active ? "text-primary-700" : "text-black hover:text-primary-700"
                 }`}
               >
                 {item.label}

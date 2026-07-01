@@ -1,7 +1,7 @@
 // Prenájom tlačiarní a kopírovacích strojov.
 
 export const rentalIntro =
-  "Prenájom tlačiarní je stále viac využívaná forma prenájmu v kanceláriách a spoločnostiach. Môžete sa spoľahnúť na profesionálne poradenstvo našej certifikovanej spoločnosti, ktoré vám uľahčí výber tlačiarne pre vašu firmu a bude vás sprevádzať krok za krokom pri vašich rozhodnutiach.";
+  "Moderné zariadenie, servis a spotrebný materiál v jednom predvídateľnom mesačnom náklade – v konfigurácii podľa potrieb vašej firmy.";
 
 export const rentalBenefits = [
   "Žiadne investičné náklady",
@@ -12,7 +12,7 @@ export const rentalBenefits = [
 ] as const;
 
 export const smContractIntro =
-  "Nestrácajte viac čas s údržbou vašej tlačiarne. Súčasťou prenájmu tlačiarne je aj servisno-materiálová zmluva (SM-zmluva). My sa postaráme o kompletné servisné služby – inštaláciu a údržbu zariadenia, prípadnú opravu a výmenu náhradných dielov technikom (vrátane cestovného), dodávku spotrebného materiálu – všetko potrebné pre bezporuchovú prevádzku zariadenia. Cena za tieto úkony je zahrnutá v paušálnom mesačnom poplatku, ktorý sa odvíja od vami predpokladaného počtu mesačne zhotovených výtlačkov.";
+  "Jedna zmluva pokrýva inštaláciu, pravidelnú údržbu, opravy, náhradné diely, výjazdy technika aj spotrebný materiál. Vy sa venujete svojej práci, my držíme tlačiareň v bezporuchovej prevádzke za vopred dohodnutý mesačný paušál.";
 
 export const smContractBenefits = [
   {

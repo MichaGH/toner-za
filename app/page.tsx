@@ -4,7 +4,6 @@ import { ServiceCardsSection } from "@/components/homepage/ServiceCardsSection";
 import { RentalAdvantagesSection } from "@/components/homepage/RentalAdvantagesSection";
 import { PrinterOffersSection } from "@/components/homepage/PrinterOffersSection";
 import { TonerSection } from "@/components/homepage/TonerSection";
-import { WhyUsSection } from "@/components/homepage/WhyUsSection";
 import { CtaSection } from "@/components/homepage/CtaSection";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <RentalAdvantagesSection />
       <PrinterOffersSection />
       <TonerSection />
-      <WhyUsSection />
       <CtaSection />
     </>
   );

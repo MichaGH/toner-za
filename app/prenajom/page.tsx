@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Check, Wallet, Settings2, Package, ReceiptText, Wrench } from "lucide-react";
-import { PageHero } from "@/components/layout/PageHero";
-import { Section, SectionHeading } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
+import { ReceiptText, Settings2, Wallet, Wrench } from "lucide-react";
 import { CtaSection } from "@/components/homepage/CtaSection";
+import { PageHero } from "@/components/layout/PageHero";
 import { RentalPrinterCard } from "@/components/printers/RentalPrinterCard";
-import { rentalIntro, smContractBenefits, smContractIntro } from "@/data/rental";
+import { Button } from "@/components/ui/Button";
+import { Section, SectionHeading } from "@/components/ui/Section";
+import { rentalIntro } from "@/data/rental";
 import { rentalPrinters } from "@/data/rentalPrinters";
 
 export const metadata: Metadata = {
@@ -15,11 +15,10 @@ export const metadata: Metadata = {
 };
 
 const rentalHighlights = [
-  { icon: Wallet, text: "Žiadne investičné náklady" },
-  { icon: Settings2, text: "Zmluva je variabilná" },
-  { icon: Package, text: "Zariadenie nemáte v majetku" },
-  { icon: ReceiptText, text: "Prenájom je nákladová položka" },
-  { icon: Wrench, text: "Starostlivosť o tlačiareň" },
+  { icon: Wallet, title: "Bez vstupnej investície" },
+  { icon: Settings2, title: "Podmienky na mieru" },
+  { icon: ReceiptText, title: "Predvídateľné náklady" },
+  { icon: Wrench, title: "Servis bez starostí" },
 ];
 
 export default function PrenajomPage() {
@@ -30,57 +29,40 @@ export default function PrenajomPage() {
         title="Prenájom tlačiarní a kopírovacích strojov"
         description={rentalIntro}
       >
-        <Button href="/kontakt">Nezáväzný dopyt</Button>
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:gap-3">
+          <Button href="/kontakt" variant="secondary">
+            Nezáväzný dopyt
+          </Button>
+          <Button href="/prenajom/zmluva" variant="outline">
+            Viac o SM-zmluve
+          </Button>
+        </div>
       </PageHero>
 
-      {/* Výhody prenájmu – kartičky s ikonami */}
-      <Section>
-        <SectionHeading center eyebrow="Prečo prenájom" title="Výhody prenájmu tlačiarní" />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {rentalHighlights.map(({ icon: Icon, text }) => (
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-x-4 gap-y-4 px-4 py-5 sm:px-6 lg:grid-cols-[auto_repeat(4,minmax(0,1fr))] lg:items-center lg:gap-0 lg:px-8">
+          <p className="col-span-2 flex items-center gap-2.5 pr-6 text-xs font-semibold uppercase tracking-[0.16em] text-primary-700 lg:col-span-1">
+            <span className="h-2 w-2 bg-accent-500" />
+            Prečo prenájom
+          </p>
+          {rentalHighlights.map(({ icon: Icon, title }) => (
             <div
-              key={text}
-              className="flex flex-col items-center border border-slate-200 bg-white p-6 text-center"
+              key={title}
+              className="flex items-center gap-3 lg:border-l lg:border-slate-200 lg:px-6"
             >
-              <Icon size={32} strokeWidth={1.75} className="text-primary-600" />
-              <p className="mt-4 text-sm font-semibold text-ink">{text}</p>
+              <Icon
+                size={21}
+                strokeWidth={1.8}
+                className="flex-none text-primary-600"
+              />
+              <p className="text-sm font-semibold leading-snug text-ink">{title}</p>
             </div>
           ))}
         </div>
-      </Section>
+      </section>
 
-      {/* Servisno-materiálová zmluva – vľavo body, vpravo text */}
-      <Section className="bg-slate-50">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="lg:order-2">
-            <SectionHeading
-              eyebrow="SM-zmluva"
-              title="Servisno-materiálová zmluva"
-              description={smContractIntro}
-            />
-          </div>
-          <ul className="space-y-4 lg:order-1">
-            {smContractBenefits.map((benefit) => (
-              <li key={benefit.title} className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center bg-primary-50 text-primary-600">
-                  <Check size={14} strokeWidth={3} />
-                </span>
-                <div>
-                  <p className="font-bold text-ink">{benefit.title}</p>
-                  <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
-                    {benefit.text}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      {/* Zariadenia na prenájom */}
       <Section>
         <SectionHeading
-          eyebrow="Zariadenia"
           title="Tlačiarne na prenájom"
           description="Vyberte si zo zariadení v ponuke. Mesačný paušál (stojné) sa dopĺňa cenou za vytlačenú stranu podľa reálnej spotreby."
         />
